@@ -4,8 +4,8 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
-  const TransactionList(
-      this.transactions, void Function(String id) deleteTransaction,
+  final Function(String id) deleteTransaction;
+  const TransactionList(this.transactions, this.deleteTransaction,
       {Key? key, required this.deleteTX})
       : super(key: key);
   final Function(String) deleteTX;
@@ -60,7 +60,9 @@ class TransactionList extends StatelessWidget {
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
                       color: Theme.of(context).errorColor,
-                      onPressed: () => deleteTX(transactions[index].id),
+                      onPressed: () {
+                        deleteTransaction(transactions[index].id);
+                      },
                     ),
                   ),
                 );

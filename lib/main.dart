@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Chart(_recentTransactions),
           TransactionList(_userTransactions, _deleteTransaction,
-              deleteTX: (transactions) => {}),
+              deleteTX: (transactions) {}),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
